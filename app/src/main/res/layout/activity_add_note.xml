@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddNoteActivity">
+
+    <EditText
+        android:id="@+id/editTextEmployerName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/employer_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextEmployerPosition"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/position"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmployerName" />
+
+    <EditText
+        android:id="@+id/editTextEmployerSalary"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/salary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmployerPosition" />
+
+    <TextView
+        android:id="@+id/textViewPersonalDeduction"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/personal_deduction"
+        android:textStyle="bold"
+        android:textColor="@color/colorAccent"
+        android:textSize="16sp"
+        android:layout_margin="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmployerSalary" />
+    
+    <Spinner
+        android:id="@+id/spinnerPersonalDeduction"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:entries="@array/choice_personal_deduction"
+        android:layout_margin="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPersonalDeduction" />
+
+    <Button
+        android:id="@+id/buttonCalculation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@android:color/holo_blue_dark"
+        android:padding="8dp"
+        android:text="@string/calculation"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:onClick="onClickCalculateSalary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerPersonalDeduction" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

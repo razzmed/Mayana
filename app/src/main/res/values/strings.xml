@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Mayana</string>
+    <string name="label_salary">Оклад:</string>
+    <string name="label_pd">Вид работы:</string>
+    <string name="calculation">Расчитать</string>
+    <string name="personal_deduction">Персональный вычет</string>
+    <string name="salary">Оклад</string>
+    <string name="position">Должность</string>
+    <string name="employer_name">Ф.И.О. сотрудника</string>
+    <string name="salary_of_month">Заработная плата:</string>
+
+    <string-array name="choice_personal_deduction">
+    <item>Основной</item>
+    <item>Совмещение</item>
+    </string-array>
+
+</resources>

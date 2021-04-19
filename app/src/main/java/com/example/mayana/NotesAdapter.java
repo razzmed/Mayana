@@ -32,7 +32,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
         holder.textViewEmployerPosition.setText(note.getEmployerPosition());
         holder.textViewEmployerSalary.setText(note.getEmployerSalary());
         holder.textViewPersonalWage.setText(note.getPersonalWage());
-        //holder.textViewMonthSalary.setText(note.getMonthSalary());
+        holder.textViewMonthSalary.setText(note.getMonthSalary());
     }
 
     @Override
@@ -46,7 +46,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
         private TextView textViewEmployerPosition;
         private TextView textViewEmployerSalary;
         private TextView textViewPersonalWage;
-        //private TextView textViewMonthSalary;
+        private TextView textViewMonthSalary;
 
         public NotesViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -55,7 +55,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
             textViewEmployerPosition = itemView.findViewById(R.id.textViewEmployerPosition);
             textViewEmployerSalary = itemView.findViewById(R.id.textViewEmployerSalary);
             textViewPersonalWage = itemView.findViewById(R.id.textViewPersonalWage);
-            //textViewMonthSalary = itemView.findViewById(R.id.textViewMonthSalary);
+            textViewMonthSalary = itemView.findViewById(R.id.textViewMonthSalary);
         }
     }
 }

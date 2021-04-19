@@ -6,14 +6,14 @@ public class Note {
     private String employerPosition;
     private String employerSalary;
     private String personalWage;
-    //private String monthSalary;
+    private String monthSalary;
 
-    public Note(String employerName, String employerPosition, String employerSalary, String personalWage) {
+    public Note(String employerName, String employerPosition, String employerSalary, String personalWage, String monthSalary) {
         this.employerName = employerName;
         this.employerPosition = employerPosition;
         this.employerSalary = employerSalary;
         this.personalWage = personalWage;
-        //this.monthSalary = monthSalary;
+        this.monthSalary = monthSalary;
     }
 
     public String getEmployerName() {
@@ -32,7 +32,7 @@ public class Note {
         return personalWage;
     }
 
-//    public String getMonthSalary() {
-//        return monthSalary;
-//    }
+    public String getMonthSalary() {
+        return monthSalary;
+    }
 }

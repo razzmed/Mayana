@@ -31,6 +31,15 @@
             app:layout_constraintTop_toBottomOf="@+id/textViewEmployerName" />
 
         <TextView
+            android:id="@+id/textViewLabelSalary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@string/label_salary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewEmployerPosition" />
+
+        <TextView
             android:id="@+id/textViewEmployerSalary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -49,24 +58,6 @@
             app:layout_constraintTop_toTopOf="@+id/textViewEmployerSalary" />
 
         <TextView
-            android:id="@+id/textViewPersonalWage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:textStyle="italic"
-            app:layout_constraintStart_toEndOf="@+id/textViewLabelPersonalDeduction"
-            app:layout_constraintTop_toTopOf="@+id/textViewLabelPersonalDeduction" />
-
-        <TextView
-            android:id="@+id/textViewLabelSalary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:text="@string/label_salary"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewEmployerPosition" />
-
-        <TextView
             android:id="@+id/textViewLabelPersonalDeduction"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -77,6 +68,15 @@
             app:layout_constraintTop_toBottomOf="@+id/textViewLabelSalary" />
 
         <TextView
+            android:id="@+id/textViewPersonalWage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textStyle="italic"
+            app:layout_constraintStart_toEndOf="@+id/textViewLabelPersonalDeduction"
+            app:layout_constraintTop_toTopOf="@+id/textViewLabelPersonalDeduction" />
+
+        <TextView
             android:id="@+id/textViewLabelSalaryOfMonth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -85,6 +85,24 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewLabelPersonalDeduction" />
+
+        <TextView
+            android:id="@+id/textViewMonthSalary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textStyle="italic"
+            app:layout_constraintStart_toEndOf="@+id/textViewLabelSalaryOfMonth"
+            app:layout_constraintTop_toTopOf="@+id/textViewLabelSalaryOfMonth" />
+
+        <TextView
+            android:id="@+id/textViewSomInMonth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/som_in_month"
+            app:layout_constraintStart_toEndOf="@+id/textViewMonthSalary"
+            app:layout_constraintTop_toTopOf="@+id/textViewLabelSalaryOfMonth" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

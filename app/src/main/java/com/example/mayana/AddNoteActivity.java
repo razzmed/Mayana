@@ -14,6 +14,7 @@ public class AddNoteActivity extends AppCompatActivity {
     private EditText editTextEmployerPosition;
     private EditText editTextEmployerSalary;
     private Spinner spinnerPersonalDeduction;
+    //private int monthSalary;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,7 @@ public class AddNoteActivity extends AppCompatActivity {
         editTextEmployerPosition = findViewById(R.id.editTextEmployerPosition);
         editTextEmployerSalary = findViewById(R.id.editTextEmployerSalary);
         spinnerPersonalDeduction = findViewById(R.id.spinnerPersonalDeduction);
+
     }
 
     public void onClickCalculateSalary(View view) {

@@ -1,9 +1,13 @@
 package com.example.mayana;
 
+import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,9 +17,11 @@ import java.util.ArrayList;
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHolder> {
 
     private ArrayList<Note> notes;
+    private Context context;
 
-    public NotesAdapter(ArrayList<Note> notes) {
+    public NotesAdapter(ArrayList<Note> notes, Context context) {
         this.notes = notes;
+        this.context = context;
     }
 
     @NonNull
@@ -26,13 +32,42 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
     }
 
     @Override
-    public void onBindViewHolder(@NonNull NotesViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final NotesViewHolder holder, final int position) {
         Note note = notes.get(position);
         holder.textViewEmployerName.setText(note.getEmployerName());
         holder.textViewEmployerPosition.setText(note.getEmployerPosition());
         holder.textViewEmployerSalary.setText(note.getEmployerSalary());
         holder.textViewPersonalWage.setText(note.getPersonalWage());
         holder.textViewMonthSalary.setText(note.getMonthSalary());
+        holder.textViewOptionDigit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PopupMenu popupMenu = new PopupMenu(context, holder.textViewOptionDigit);
+                popupMenu.inflate(R.menu.option_menu);
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem menuItem) {
+                        switch (menuItem.getItemId()) {
+                            case R.id.menu_item_send:
+                                Toast.makeText(context, "Отправлено", Toast.LENGTH_SHORT).show();
+                                break;
+                            case R.id.menu_item_edit:
+                                Toast.makeText(context, "Редактирование завершено", Toast.LENGTH_SHORT).show();
+                                break;
+                            case R.id.menu_item_delete:
+                                notes.remove(position);
+                                notifyDataSetChanged();
+                                Toast.makeText(context, "Удалено", Toast.LENGTH_SHORT).show();
+                                break;
+                            default:
+                                break;
+                        }
+                        return false;
+                    }
+                });
+                popupMenu.show();
+            }
+        });
     }
 
     @Override
@@ -47,6 +82,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
         private TextView textViewEmployerSalary;
         private TextView textViewPersonalWage;
         private TextView textViewMonthSalary;
+        private TextView textViewOptionDigit;
 
         public NotesViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -56,6 +92,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
             textViewEmployerSalary = itemView.findViewById(R.id.textViewEmployerSalary);
             textViewPersonalWage = itemView.findViewById(R.id.textViewPersonalWage);
             textViewMonthSalary = itemView.findViewById(R.id.textViewMonthSalary);
+            textViewOptionDigit = itemView.findViewById(R.id.textViewOptionDigit);
         }
     }
 }

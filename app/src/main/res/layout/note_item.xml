@@ -19,6 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:textStyle="bold"
+            android:textAppearance="?android:textAppearanceLarge"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,6 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
+            android:textAppearance="?android:textAppearanceMedium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewEmployerName" />
 
@@ -103,6 +105,17 @@
             android:text="@string/som_in_month"
             app:layout_constraintStart_toEndOf="@+id/textViewMonthSalary"
             app:layout_constraintTop_toTopOf="@+id/textViewLabelSalaryOfMonth" />
+
+        <TextView
+            android:id="@+id/textViewOptionDigit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="&#8942;"
+            android:textAppearance="?android:textAppearanceLarge"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:padding ="16dp" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

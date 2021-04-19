@@ -18,8 +18,8 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerViewNotes;
     public static final ArrayList<Note> notes = new ArrayList<>();
 
-    private String name;
-    private String password;
+    public String name;
+    public String password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerViewNotes = findViewById(R.id.recyclerViewNotes);
 
-        NotesAdapter adapter = new NotesAdapter(notes);
+        NotesAdapter adapter = new NotesAdapter(notes, this);
         recyclerViewNotes.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewNotes.setAdapter(adapter);
     }

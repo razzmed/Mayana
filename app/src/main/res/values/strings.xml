@@ -10,13 +10,16 @@
     <string name="salary_of_month">Заработная плата:</string>
     <string name="som_in_month">сом в месяц</string>
     <string name="logo_description">Логотип</string>
-    <string name="welcome">MAYANA</string>
+    <string name="welcome">Добро пожаловать!</string>
     <string name="hint_name">Введите ваше имя</string>
     <string name="hint_password">Введите ваш персональный номер</string>
     <string name="btn_enter">Войти</string>
     <string name="warning_fill_fields">Заполните все поля!</string>
     <string name="default_name">клиент</string>
     <string name="default_password">пароль</string>
+    <string name="menu_item_edit">Редактировать</string>
+    <string name="menu_item_delete">Удалить</string>
+    <string name="menu_item_send">Отправить</string>
 
     <string-array name="choice_personal_deduction">
     <item>Основной</item>

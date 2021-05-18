@@ -1,6 +1,11 @@
 package com.example.mayana;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,15 +18,21 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHolder> {
 
-    private ArrayList<Note> notes;
+    private List<Note> notes;
     private Context context;
 
     public NotesAdapter(ArrayList<Note> notes, Context context) {
         this.notes = notes;
         this.context = context;
+    }
+
+    public void setNotes(List<Note> notes) {
+        this.notes = notes;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -33,7 +44,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
 
     @Override
     public void onBindViewHolder(@NonNull final NotesViewHolder holder, final int position) {
-        Note note = notes.get(position);
+        final Note note = notes.get(position);
         holder.textViewEmployerName.setText(note.getEmployerName());
         holder.textViewEmployerPosition.setText(note.getEmployerPosition());
         holder.textViewEmployerSalary.setText(note.getEmployerSalary());
@@ -41,8 +52,8 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
         holder.textViewMonthSalary.setText(note.getMonthSalary());
         holder.textViewOptionDigit.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                PopupMenu popupMenu = new PopupMenu(context, holder.textViewOptionDigit);
+            public void onClick(final View view) {
+                final PopupMenu popupMenu = new PopupMenu(context, holder.textViewOptionDigit);
                 popupMenu.inflate(R.menu.option_menu);
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
@@ -52,12 +63,27 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
                                 Toast.makeText(context, "Отправлено", Toast.LENGTH_SHORT).show();
                                 break;
                             case R.id.menu_item_edit:
-                                Toast.makeText(context, "Редактирование завершено", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(context, AddNoteActivity.class);
+                                intent.putExtra("note", note);
+                                view.getContext().startActivity(intent);
+                                Toast.makeText(context, "Редактирование разрешено", Toast.LENGTH_SHORT).show();
                                 break;
                             case R.id.menu_item_delete:
-                                notes.remove(position);
-                                notifyDataSetChanged();
+                                Log.e("fghggghjklllllkj", "onClick: " + note.getId());
+                                App.getInstance().getDatabase().notesDao().deleteById(note.getId());
                                 Toast.makeText(context, "Удалено", Toast.LENGTH_SHORT).show();
+
+                                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                                builder.setMessage("Удалить?").setNegativeButton("Нет", null)
+                                        .setPositiveButton("Да", new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialogInterface, int i) {
+                                                Log.e("fghggghjklllllkj", "onClick: " + note.getId());
+                                                App.getInstance().getDatabase().notesDao().deleteById(note.getId());
+                                                Toast.makeText(context, "Удалено", Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
+                                //builder.show();
                                 break;
                             default:
                                 break;

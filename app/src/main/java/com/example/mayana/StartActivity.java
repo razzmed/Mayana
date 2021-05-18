@@ -31,6 +31,7 @@ public class StartActivity extends AppCompatActivity {
             intent.putExtra("name", name);
             intent.putExtra("password", password);
             startActivity(intent);
+            finish();
         } else {
             Toast.makeText(this, R.string.warning_fill_fields, Toast.LENGTH_SHORT).show();
         }

@@ -57,7 +57,7 @@
         android:layout_margin="8dp"
         android:text="@string/btn_enter"
         android:textSize="20sp"
-        android:background="@color/white"
+        android:background="@drawable/button_start_rounded"
         android:textColor="@color/colorAccent"
         android:onClick="onClickEnter"/>
 

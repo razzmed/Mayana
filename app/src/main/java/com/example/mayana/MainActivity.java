@@ -6,19 +6,13 @@ import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.ActionBar;
-import android.content.ContentValues;
-import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Observable;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,20 +46,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         recyclerViewNotes = findViewById(R.id.recyclerViewNotes);
-//
-//        Cursor cursor = database.query(EmployeesContract.EmployeesEntry.TABLE_NAME, null, null, null, null, null, EmployeesContract.EmployeesEntry.COLUMN_EMPLOYER_NAME);
-//        while (cursor.moveToNext()) {
-//            int id = cursor.getInt(cursor.getColumnIndex(EmployeesContract.EmployeesEntry._ID));
-//            String employeeName = cursor.getString(cursor.getColumnIndex(EmployeesContract.EmployeesEntry.COLUMN_EMPLOYER_NAME));
-//            String employeePosition = cursor.getString(cursor.getColumnIndex(EmployeesContract.EmployeesEntry.COLUMN_EMPLOYER_POSITION));
-//            String employeeSalary = cursor.getString(cursor.getColumnIndex(EmployeesContract.EmployeesEntry.COLUMN_EMPLOYER_SALARY));
-//            String personalWage = cursor.getString(cursor.getColumnIndex(EmployeesContract.EmployeesEntry.COLUMN_PERSONAL_WAGE));
-//            String monthSalary = cursor.getString(cursor.getColumnIndex(EmployeesContract.EmployeesEntry.COLUMN_MONTH_SALARY));
-//            Note note = new Note(id, employeeName, employeePosition, employeeSalary, personalWage, monthSalary);
-//            notes.add(note);
-//        }
-//        cursor.close();
-
         adapter = new NotesAdapter(notes, this);
         recyclerViewNotes.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewNotes.setAdapter(adapter);
@@ -84,13 +64,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, AddNoteActivity.class);
         startActivity(intent);
     }
-
-//    public void remove(int position) {
-//        Note note = notes.get(position);
-//        database.notesDao().deleteNote(note);
-//        getData();
-//        adapter.notifyDataSetChanged();
-//    }
 
     public void getData() {
         database.notesDao().getAllNotes().observe(this, new Observer<List<Note>>() {

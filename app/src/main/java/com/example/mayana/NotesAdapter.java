@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +25,8 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
 
     private List<Note> notes;
     private Context context;
+
+    //private TextView textViewNameEmployee;
 
     public NotesAdapter(ArrayList<Note> notes, Context context) {
         this.notes = notes;
@@ -58,9 +61,15 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem menuItem) {
+
                         switch (menuItem.getItemId()) {
                             case R.id.menu_item_send:
-                                Toast.makeText(context, "Отправлено", Toast.LENGTH_SHORT).show();
+//                                textViewNameEmployee = view.findViewById(R.id.textViewEmployerName);
+//                                String employerName = textViewNameEmployee.getText().toString().trim();
+                                Intent intent2 = new Intent(context, SendInfoActivity.class);
+//                                intent2.putExtra("employee_name", employerName);
+                                view.getContext().startActivity(intent2);
+                                Toast.makeText(context, "Подготовка к отправке", Toast.LENGTH_SHORT).show();
                                 break;
                             case R.id.menu_item_edit:
                                 Intent intent = new Intent(context, AddNoteActivity.class);
@@ -69,21 +78,16 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
                                 Toast.makeText(context, "Редактирование разрешено", Toast.LENGTH_SHORT).show();
                                 break;
                             case R.id.menu_item_delete:
-                                Log.e("fghggghjklllllkj", "onClick: " + note.getId());
-                                App.getInstance().getDatabase().notesDao().deleteById(note.getId());
-                                Toast.makeText(context, "Удалено", Toast.LENGTH_SHORT).show();
-
                                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                                 builder.setMessage("Удалить?").setNegativeButton("Нет", null)
                                         .setPositiveButton("Да", new DialogInterface.OnClickListener() {
                                             @Override
                                             public void onClick(DialogInterface dialogInterface, int i) {
-                                                Log.e("fghggghjklllllkj", "onClick: " + note.getId());
                                                 App.getInstance().getDatabase().notesDao().deleteById(note.getId());
                                                 Toast.makeText(context, "Удалено", Toast.LENGTH_SHORT).show();
                                             }
                                         });
-                                //builder.show();
+                                builder.show();
                                 break;
                             default:
                                 break;

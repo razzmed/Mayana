@@ -20,10 +20,15 @@
     <string name="menu_item_edit">Редактировать</string>
     <string name="menu_item_delete">Удалить</string>
     <string name="menu_item_send">Отправить</string>
+    <string name="logo_employee">logo_employee</string>
+    <string name="btn_send">Отправить</string>
+    <string name="employee_info">Информация о сотруднике</string>
+    <string name="place_of_requirement">Введите место требования</string>
+    <string name="chooser">Выберите способ отправки</string>
 
     <string-array name="choice_personal_deduction">
-    <item>Основной</item>
-    <item>Совмещение</item>
+        <item>Основной</item>
+        <item>Совмещение</item>
     </string-array>
 
 </resources>

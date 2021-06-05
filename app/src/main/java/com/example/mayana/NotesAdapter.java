@@ -26,7 +26,6 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
     private List<Note> notes;
     private Context context;
 
-    //private TextView textViewNameEmployee;
 
     public NotesAdapter(ArrayList<Note> notes, Context context) {
         this.notes = notes;
@@ -64,10 +63,8 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
 
                         switch (menuItem.getItemId()) {
                             case R.id.menu_item_send:
-//                                textViewNameEmployee = view.findViewById(R.id.textViewEmployerName);
-//                                String employerName = textViewNameEmployee.getText().toString().trim();
                                 Intent intent2 = new Intent(context, SendInfoActivity.class);
-//                                intent2.putExtra("employee_name", employerName);
+                                intent2.putExtra("key", note);
                                 view.getContext().startActivity(intent2);
                                 Toast.makeText(context, "Подготовка к отправке", Toast.LENGTH_SHORT).show();
                                 break;

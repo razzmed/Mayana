@@ -11,20 +11,32 @@ import android.widget.TextView;
 public class SendInfoActivity extends AppCompatActivity {
 
     private EditText editTextPlaceOfReq;
-//    private TextView textViewEmployeeInfo;
+    private TextView textViewEmployeeName;
+    private TextView textViewEmployeePosition;
+    private TextView textViewEmployeeSalary;
+    private TextView textViewEmployeePersonalWage;
+    private TextView textViewEmployeeMonthSalary;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send_info);
         editTextPlaceOfReq = findViewById(R.id.editTextSendPlaceOfRequirement);
-////        textViewEmployeeInfo = findViewById(R.id.textViewEmployeeInfo);
+        textViewEmployeeName = findViewById(R.id.textViewEmployeeName);
+        textViewEmployeePosition = findViewById(R.id.textViewEmployeePosition);
+        textViewEmployeeSalary = findViewById(R.id.textViewEmployeeSalary);
+        textViewEmployeePersonalWage = findViewById(R.id.textViewEmployeePersonalWage);
+        textViewEmployeeMonthSalary = findViewById(R.id.textViewEmployeeMonthSalary);
 ////
-////        Intent intent = getIntent();
-////        if (intent.hasExtra("employee_name")) {
-////            String nameEmployee = intent.getStringExtra("employee_name");
-////            textViewEmployeeInfo.setText(nameEmployee);
-//        }
+        if (getIntent() != null) {
+            Note note = (Note) getIntent().getSerializableExtra("key");
+            textViewEmployeeName.setText(note.getEmployerName());
+            textViewEmployeePosition.setText(note.getEmployerPosition());
+            textViewEmployeeSalary.setText(note.getEmployerSalary());
+            textViewEmployeePersonalWage.setText(note.getPersonalWage());
+            textViewEmployeeMonthSalary.setText(note.getMonthSalary());
+
+        }
     }
 
     public void onClickSendEmployeeInfo(View view) {

@@ -18,8 +18,10 @@ public class AddNoteActivity extends AppCompatActivity {
     private EditText editTextEmployerName;
     private EditText editTextEmployerPosition;
     private EditText editTextEmployerSalary;
+    private EditText editTextBonus;
     private Spinner spinnerPersonalDeduction;
     private int monthSalary;
+    private int bonus;
     private String selected;
     private String totalResult;
 
@@ -40,6 +42,7 @@ public class AddNoteActivity extends AppCompatActivity {
         editTextEmployerName = findViewById(R.id.editTextEmployerName);
         editTextEmployerPosition = findViewById(R.id.editTextEmployerPosition);
         editTextEmployerSalary = findViewById(R.id.editTextEmployerSalary);
+        editTextBonus = findViewById(R.id.editTextBonus);
         spinnerPersonalDeduction = findViewById(R.id.spinnerPersonalDeduction);
         spinnerPersonalDeduction.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -56,6 +59,7 @@ public class AddNoteActivity extends AppCompatActivity {
             editTextEmployerName.setText(note.getEmployerName());
             editTextEmployerPosition.setText(note.getEmployerPosition());
             editTextEmployerSalary.setText(note.getMonthSalary());
+            editTextBonus.setText(note.getBonus());
         }
     }
 
@@ -63,15 +67,17 @@ public class AddNoteActivity extends AppCompatActivity {
         String employerName = editTextEmployerName.getText().toString().trim();
         String employerPosition = editTextEmployerPosition.getText().toString().trim();
         String employerSalary = editTextEmployerSalary.getText().toString().trim();
-        if (isFilled(employerName, employerPosition, employerSalary)) {
+        String employerBonus = editTextBonus.getText().toString().trim();
+        if (isFilled(employerName, employerPosition, employerSalary, employerBonus)) {
             finish();
             String personalDeduction = spinnerPersonalDeduction.getSelectedItem().toString();
             monthSalary = Integer.parseInt(employerSalary);
-            double taxSalaryMain = (monthSalary - (monthSalary * 0.1) - 650) * 0.1;
-            double resultMain = monthSalary - (monthSalary * 0.1) - taxSalaryMain;
+            bonus = Integer.parseInt(employerBonus);
+            double taxSalaryMain = (((monthSalary + bonus) - (monthSalary + bonus) * 0.1) - 650) * 0.1;
+            double resultMain = ((monthSalary + bonus) - ((monthSalary + bonus) * 0.1)) - taxSalaryMain;
 
-            double taxSalaryComb = (monthSalary - (monthSalary * 0.1)) * 0.1;
-            double resultComb = monthSalary - (monthSalary * 0.1) - taxSalaryComb;
+            double taxSalaryComb = (((monthSalary + bonus) - ((monthSalary + bonus) * 0.1))) * 0.1;
+            double resultComb = (monthSalary + bonus) - ((monthSalary + bonus) * 0.1) - taxSalaryComb;
 
 
             if (selected.equals("Основной")) {
@@ -85,6 +91,7 @@ public class AddNoteActivity extends AppCompatActivity {
                 note.setEmployerName(employerName);
                 note.setEmployerPosition(employerPosition);
                 note.setEmployerSalary(employerSalary);
+                note.setBonus(employerBonus);
                 note.setPersonalWage(personalDeduction);
                 note.setMonthSalary(totalResult);
                 App.getInstance().getDatabase().notesDao().update(note);
@@ -93,6 +100,7 @@ public class AddNoteActivity extends AppCompatActivity {
                 note.setEmployerName(employerName);
                 note.setEmployerPosition(employerPosition);
                 note.setEmployerSalary(employerSalary);
+                note.setBonus(employerBonus);
                 note.setPersonalWage(personalDeduction);
                 note.setMonthSalary(totalResult);
                 App.getInstance().getDatabase().notesDao().insertNote(note);
@@ -103,21 +111,9 @@ public class AddNoteActivity extends AppCompatActivity {
         }
 
     }
-//            ContentValues contentValues = new ContentValues();
-//            contentValues.put(EmployeesContract.EmployeesEntry.COLUMN_EMPLOYER_NAME, employerName);
-//            contentValues.put(EmployeesContract.EmployeesEntry.COLUMN_EMPLOYER_POSITION, employerPosition);
-//            contentValues.put(EmployeesContract.EmployeesEntry.COLUMN_EMPLOYER_SALARY, employerSalary);
-//            contentValues.put(EmployeesContract.EmployeesEntry.COLUMN_PERSONAL_WAGE, personalDeduction);
-//            contentValues.put(EmployeesContract.EmployeesEntry.COLUMN_MONTH_SALARY, totalResult);
-//
-//            Intent intent = new Intent(this, MainActivity.class);
-//            startActivity(intent);
-//        } else {
-//            Toast.makeText(this, R.string.warning_fill_fieds, Toast.LENGTH_SHORT).show();
-//        }
 
     //Проверка заполнености всех полей
-    private boolean isFilled(String employerName, String employerPosition, String employerSalary) {
-        return !employerName.isEmpty() && !employerPosition.isEmpty() && !employerSalary.isEmpty();
+    private boolean isFilled(String employerName, String employerPosition, String employerSalary, String employerBonus) {
+        return !employerName.isEmpty() && !employerPosition.isEmpty() && !employerSalary.isEmpty() && !employerBonus.isEmpty();
     }
 }

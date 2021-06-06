@@ -12,7 +12,7 @@ public class App extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
         instance = this;
-        database = Room.databaseBuilder(this, NotesDatabase.class, "database").allowMainThreadQueries().build();
+        database = Room.databaseBuilder(this, NotesDatabase.class, "database").allowMainThreadQueries().fallbackToDestructiveMigration().build();
     }
 
     public NotesDatabase getDatabase() {

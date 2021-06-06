@@ -50,6 +50,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
         holder.textViewEmployerName.setText(note.getEmployerName());
         holder.textViewEmployerPosition.setText(note.getEmployerPosition());
         holder.textViewEmployerSalary.setText(note.getEmployerSalary());
+        holder.textViewBonus.setText(note.getBonus());
         holder.textViewPersonalWage.setText(note.getPersonalWage());
         holder.textViewMonthSalary.setText(note.getMonthSalary());
         holder.textViewOptionDigit.setOnClickListener(new View.OnClickListener() {
@@ -107,6 +108,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
         private TextView textViewEmployerName;
         private TextView textViewEmployerPosition;
         private TextView textViewEmployerSalary;
+        private TextView textViewBonus;
         private TextView textViewPersonalWage;
         private TextView textViewMonthSalary;
         private TextView textViewOptionDigit;
@@ -117,6 +119,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
             textViewEmployerName = itemView.findViewById(R.id.textViewEmployerName);
             textViewEmployerPosition = itemView.findViewById(R.id.textViewEmployerPosition);
             textViewEmployerSalary = itemView.findViewById(R.id.textViewEmployerSalary);
+            textViewBonus = itemView.findViewById(R.id.textViewEmployerBonus);
             textViewPersonalWage = itemView.findViewById(R.id.textViewPersonalWage);
             textViewMonthSalary = itemView.findViewById(R.id.textViewMonthSalary);
             textViewOptionDigit = itemView.findViewById(R.id.textViewOptionDigit);

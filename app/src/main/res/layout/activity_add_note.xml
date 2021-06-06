@@ -49,6 +49,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextEmployerPosition" />
 
+    <EditText
+        android:id="@+id/editTextBonus"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:ems="10"
+        android:inputType="phone"
+        android:hint="@string/bonus"
+        android:background="@drawable/edit_text_rounded"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmployerSalary" />
+
     <TextView
         android:id="@+id/textViewPersonalDeduction"
         android:layout_width="0dp"
@@ -60,7 +74,7 @@
         android:layout_margin="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextEmployerSalary" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextBonus" />
     
     <Spinner
         android:id="@+id/spinnerPersonalDeduction"

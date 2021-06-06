@@ -1,10 +1,12 @@
 <resources>
     <string name="app_name">Mayana</string>
     <string name="label_salary">Оклад:</string>
+    <string name="label_bonus">Премия:</string>
     <string name="label_pd">Вид работы:</string>
     <string name="calculation">Рассчитать</string>
     <string name="personal_deduction">Персональный вычет</string>
     <string name="salary">Оклад</string>
+    <string name="bonus">Премия</string>
     <string name="position">Должность</string>
     <string name="employer_name">Ф.И.О. сотрудника</string>
     <string name="salary_of_month">Заработная плата:</string>
@@ -21,7 +23,9 @@
     <string name="menu_item_delete">Удалить</string>
     <string name="menu_item_send">Отправить</string>
     <string name="logo_employee">logo_employee</string>
-    <string name="btn_send">Отправить</string>
+    <string name="btn_add">Создать PDF документ</string>
+    <string name="btn_view">Просмотр PDF документа</string>
+    <string name="btn_share">Отправить в PDF формате</string>
     <string name="employee_info">Информация о сотруднике</string>
     <string name="place_of_requirement">Введите место требования</string>
     <string name="chooser">Выберите способ отправки</string>

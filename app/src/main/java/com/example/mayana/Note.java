@@ -14,14 +14,16 @@ public class Note implements Serializable {
     private String employerName;
     private String employerPosition;
     private String employerSalary;
+    private String bonus;
     private String personalWage;
     private String monthSalary;
 
     @Ignore
-    public Note(String employerName, String employerPosition, String employerSalary, String personalWage, String monthSalary) {
+    public Note(String employerName, String employerPosition, String employerSalary, String bonus, String personalWage, String monthSalary) {
         this.employerName = employerName;
         this.employerPosition = employerPosition;
         this.employerSalary = employerSalary;
+        this.bonus = bonus;
         this.personalWage = personalWage;
         this.monthSalary = monthSalary;
     }
@@ -46,6 +48,10 @@ public class Note implements Serializable {
         return employerSalary;
     }
 
+    public String getBonus() {
+        return bonus;
+    }
+
     public String getPersonalWage() {
         return personalWage;
     }
@@ -68,6 +74,10 @@ public class Note implements Serializable {
 
     public void setEmployerSalary(String employerSalary) {
         this.employerSalary = employerSalary;
+    }
+
+    public void setBonus(String bonus) {
+        this.bonus = bonus;
     }
 
     public void setPersonalWage(String personalWage) {

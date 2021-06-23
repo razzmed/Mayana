@@ -22,8 +22,6 @@ public class MainActivity extends AppCompatActivity {
 
     public NotesDatabase database;
 
-    public String name;
-    public String password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,15 +33,6 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         getData();
-
-        Intent intent = getIntent();
-        if (intent.hasExtra("name") && intent.hasExtra("password")) {
-            name = intent.getStringExtra("name");
-            password = intent.getStringExtra("password");
-        } else {
-            name = getString(R.string.default_name);
-            password = getString(R.string.default_password);
-        }
 
         recyclerViewNotes = findViewById(R.id.recyclerViewNotes);
         adapter = new NotesAdapter(notes, this);

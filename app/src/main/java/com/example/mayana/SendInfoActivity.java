@@ -135,48 +135,4 @@ public class SendInfoActivity extends AppCompatActivity {
         });
     }
 
-//    btnAdd.setOnClickListener(new View.OnClickListener() {
-//        @Override
-//        public void onClick(View view) {
-//            String info = textViewEmployeeInfo.getText().toString();
-//            String name = textViewEmployeeName.getText().toString();
-//            String position = textViewEmployeePosition.getText().toString();
-//            String salary = textViewEmployeeSalary.getText().toString();
-//            String bonus = textViewBonus.getText().toString();
-//            String personalWage = textViewEmployeePersonalWage.getText().toString();
-//            String monthSalary = textViewEmployeeMonthSalary.getText().toString();
-//
-//            try {
-//                createPdf(info, name, position, salary, bonus, personalWage, monthSalary);
-//            } catch (FileNotFoundException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//    });
-//    }
-//
-//    private void createPdf(String info, String name, String position, String salary, String bonus, String personalWage, String monthSalary)
-//    throws FileNotFoundException {
-//        String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString();
-//        File file = new File(path, "myPdf.pdf");
-//        OutputStream outputStream = new FileOutputStream(file);
-//
-//        PdfWriter writer = new PdfWriter(file);
-//        PdfDocument pdfDocument = new PdfDocument(writer);
-//        Document document = new Document(pdfDocument);
-//
-//        pdfDocument.setDefaultPageSize(PageSize.A6);
-//        document.setMargins(0, 0, 0, 0);
-//
-//        Drawable drawable = getDrawable(R.drawable.payroll_services);
-//        Bitmap bitmap = ((BitmapDrawable)drawable).getBitmap();
-//        ByteArrayInputStream stream = new ByteArrayInputStream();
-//        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
-//        byte[] bitmapData = stream.toByteArray();
-//
-//        document.close();
-//        Toast.makeText(this, "PDF created", Toast.LENGTH_SHORT).show();
-//
-//    }
-
 }

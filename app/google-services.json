@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "378179142159",
+    "project_id": "mayana-payroll-app",
+    "storage_bucket": "mayana-payroll-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:378179142159:android:895b1465af6bea8eec997a",
+        "android_client_info": {
+          "package_name": "com.example.mayana"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "378179142159-5mgoav2ad4bu9siq7vsoh9breb6pa5fn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mayana",
+            "certificate_hash": "bbafec41198864b071d8b35b443b904a39c48cc2"
+          }
+        },
+        {
+          "client_id": "378179142159-jb8em1jbl966q7tqgnbqdu6q3fm7kdap.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWKJz67ig2U8GRUPCRMGseYqdlSJ7P0Js"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "378179142159-jb8em1jbl966q7tqgnbqdu6q3fm7kdap.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

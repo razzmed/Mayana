@@ -73,10 +73,10 @@ public class AddNoteActivity extends AppCompatActivity {
             String personalDeduction = spinnerPersonalDeduction.getSelectedItem().toString();
             monthSalary = Integer.parseInt(employerSalary);
             bonus = Integer.parseInt(employerBonus);
-            double taxSalaryMain = (((monthSalary + bonus) - (monthSalary + bonus) * 0.1) - 650) * 0.1;
+            double taxSalaryMain = (((monthSalary + bonus) - ((monthSalary + bonus) * 0.1) - 650) * 0.1);
             double resultMain = ((monthSalary + bonus) - ((monthSalary + bonus) * 0.1)) - taxSalaryMain;
 
-            double taxSalaryComb = (((monthSalary + bonus) - ((monthSalary + bonus) * 0.1))) * 0.1;
+            double taxSalaryComb = ((monthSalary + bonus) - ((monthSalary + bonus) * 0.1)) * 0.1;
             double resultComb = (monthSalary + bonus) - ((monthSalary + bonus) * 0.1) - taxSalaryComb;
 
 

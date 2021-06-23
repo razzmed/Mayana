@@ -12,27 +12,28 @@
     <string name="salary_of_month">Заработная плата:</string>
     <string name="som_in_month">сом в месяц</string>
     <string name="logo_description">Логотип</string>
-    <string name="welcome">Добро пожаловать!</string>
+    <string name="welcome"></string>
+    <string name="app_title">MAYANA</string>
+    <string name="app_payroll_service">Payroll Service App</string>
     <string name="hint_name">Введите ваше имя</string>
     <string name="hint_password">Введите ваш персональный номер</string>
     <string name="btn_enter">Войти</string>
+    <string name="btn_register">Зарегистрироваться</string>
     <string name="warning_fill_fields">Заполните все поля!</string>
     <string name="default_name">клиент</string>
     <string name="default_password">пароль</string>
     <string name="menu_item_edit">Редактировать</string>
     <string name="menu_item_delete">Удалить</string>
-    <string name="menu_item_send">Отправить</string>
+    <string name="menu_item_send">Отправить в PDF</string>
     <string name="logo_employee">logo_employee</string>
     <string name="btn_add">Создать PDF документ</string>
     <string name="btn_view">Просмотр PDF документа</string>
-    <string name="btn_share">Отправить в PDF формате</string>
     <string name="employee_info">Информация о сотруднике</string>
-    <string name="place_of_requirement">Введите место требования</string>
     <string name="chooser">Выберите способ отправки</string>
 
     <string-array name="choice_personal_deduction">
-        <item>Основной</item>
-        <item>Совмещение</item>
+        <item>Basic</item>
+        <item>Combination</item>
     </string-array>
 
 </resources>
